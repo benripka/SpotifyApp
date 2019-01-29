@@ -10,6 +10,18 @@ namespace SpotifyApp.Controllers
 {
     public class HomeController : Controller
     {
+
+        private Spotify spotify = new Spotify();
+
+        public HomeController()
+        {
+            spotify.Setup();
+        }
+
+        public string SayMyName(string name)
+        {
+            return "Your name is " + name;
+        }
         public IActionResult Index()
         {
             return View();
