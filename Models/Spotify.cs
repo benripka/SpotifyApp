@@ -6,6 +6,7 @@ using SpotifyAPI.Web.Models;
 using System.Threading.Tasks;
 using System.Web;
 using System.Net.Http;
+using System.Net.Http;
 
 namespace SpotifyApp.Models
 {
@@ -40,20 +41,10 @@ namespace SpotifyApp.Models
         }
         public string prepareUserAuthRequest()
         {
-            string encodedScopes = encodeScopes("user-read-private user-read-email");
-            string encodedRedirectUri = encodeUri("https://docs.microsoft.com/en-us/dotnet");
+            string encodedScopes = HttpUtility.UrlEncode("user-read-private+user-read-email");
+            string encodedRedirectUri = HttpUtility.UrlEncode("https://911fed47.ngrok.io");
             string request = "https://accounts/spotify.com/authorize?response_type=token&client_id="+clientId+"&scope="+ encodedScopes + "&redirect_uri=" + encodedRedirectUri;
             return request;
-        }
-        private string encodeScopes(string scopes)
-        {   
-            string urlEncodedscopes = System.Web.HttpUtility.UrlEncode(scopes);
-            return Uri.EscapeDataString(Uri.EscapeUriString(urlEncodedscopes));
-        }
-
-        private string encodeUri(string uri)
-        {
-            return Uri.EscapeDataString(Uri.EscapeUriString(uri));
         }
     }
 }

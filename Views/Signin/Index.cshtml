@@ -11,7 +11,7 @@
 
 <div class="header event">
     <h1 class="title-header">Events Page</h1>
-    <input type="button" class="btn btn-primary create-button" value="Sign into Spotify" onclick="@("window.location.href='" + @Url.Action("Create", "Events") + "'");" />
+    <input type="button" class="btn btn-primary create-button" value="Sign into Spotify" onclick="@("window.location.href='" + @Url.Action("AuthWithSpotify", "Signin") + "'");" />
 </div>
 
 <div class = ""></div>
