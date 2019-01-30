@@ -1,10 +1,12 @@
+@model SpotifyApp.Models.Spotify
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Your Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Hello World, welcome to the singnin page</p>
+    <a class="btn btn-primary" href="@Model.getSigninUrl()" role="button"></a>Give Spotify Info</a> 
 </div>
 
 <div class="header event">
@@ -12,19 +14,6 @@
     <input type="button" class="btn btn-primary create-button" value="Sign into Spotify" onclick="@("window.location.href='" + @Url.Action("Create", "Events") + "'");" />
 </div>
 
-<div class="Card-deck">
-    <div class="col-sm-4">
-                <div class="card text-center event-card" style="margin-bottom:25px">
-                    <div class="card-body">
-                        <h5 class="card-title">Bloop</h5>
-                        <div class="description">
-                            <p class="card-text"> This is the card info</p>
-                        </div>
-                    </div>
-                    <div class="card-footer text-muted">
-                        <h1>Date div</h1>
-                        
-                    </div>
-                </div>
-            </div>
-</div>
+<div class = ""></div>
+
+

@@ -19,7 +19,7 @@ namespace SpotifyApp.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(spotify);
         }
 
         public IActionResult Privacy()

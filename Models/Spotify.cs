@@ -33,5 +33,27 @@ namespace SpotifyApp.Models
             SearchItem item = spotify.SearchItems(name, SearchType.Artist);
             return item.Artists.Items[0];
         }
+
+        public string getSigninUrl()
+        {
+            return prepareUserAuthRequest();
+        }
+        public string prepareUserAuthRequest()
+        {
+            string encodedScopes = encodeScopes("user-read-private user-read-email");
+            string encodedRedirectUri = encodeUri("https://docs.microsoft.com/en-us/dotnet");
+            string request = "https://accounts/spotify.com/authorize?response_type=token&client_id="+clientId+"&scope="+ encodedScopes + "&redirect_uri=" + encodedRedirectUri;
+            return request;
+        }
+        private string encodeScopes(string scopes)
+        {   
+            string urlEncodedscopes = System.Web.HttpUtility.UrlEncode(scopes);
+            return Uri.EscapeDataString(Uri.EscapeUriString(urlEncodedscopes));
+        }
+
+        private string encodeUri(string uri)
+        {
+            return Uri.EscapeDataString(Uri.EscapeUriString(uri));
+        }
     }
 }
